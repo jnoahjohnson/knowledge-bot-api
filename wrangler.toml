@@ -1,5 +1,5 @@
 name = "knowledge-bot"
-main = "src/index.ts"
+main = "src/index.tsx"
 compatibility_date = "2024-03-20"
 compatibility_flags = ["nodejs_compat"]
 
@@ -11,8 +11,8 @@ compatibility_flags = ["nodejs_compat"]
 
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#workers-ai
-# [ai]
-# binding = "AI"
+[ai]
+binding = "AI"
 
 # Bind an Analytics Engine dataset. Use Analytics Engine to write analytics within your Pages Function.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#analytics-engine-datasets
@@ -26,10 +26,10 @@ compatibility_flags = ["nodejs_compat"]
 
 # Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#d1-databases
-# [[d1_databases]]
-# binding = "MY_DB"
-# database_name = "my-database"
-# database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "knowledge-database"
+database_id = "6020d9af-ca7b-4ed9-b33e-6d9ffaf266b2"
 
 # Bind a dispatch namespace. Use Workers for Platforms to deploy serverless functions programmatically on behalf of your customers.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#dispatch-namespace-bindings-workers-for-platforms
@@ -93,6 +93,6 @@ compatibility_flags = ["nodejs_compat"]
 
 # Bind a Vectorize index. Use to store and query vector embeddings for semantic search, classification and other vector search use-cases.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#vectorize-indexes
-# [[vectorize]]
-# binding = "MY_INDEX"
-# index_name = "my-index"
+[[vectorize]]
+binding = "KNOWLEDGE_VECTOR"
+index_name = "knowledge-vectors"
